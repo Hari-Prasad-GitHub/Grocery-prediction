@@ -23,9 +23,7 @@ grocery_dict = {}
 for i in range(1, 67):
     df = dataBH.iloc[2:,[0,i]]
     df.columns = ['ds', 'y']
-    train = df.iloc[:len(df)-30]
-    #test = df.iloc[len(df)-30:]
-    test = df.iloc[:len(df)-30]
+    train = df.iloc[:len(df)]
     m = Prophet(n_changepoints=1)
     m.add_seasonality(name='monthly', period=30.5, fourier_order=5)
     m.fit(train)
